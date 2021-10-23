@@ -1,12 +1,11 @@
 <template>
   <li>
-    <h2>{{ friend.name }} {{ isFavourite ? " (Favourite)" : "" }}</h2>
+    <h2>{{ name }} {{ isFavourite ? " (Favourite)" : "" }}</h2>
     <button @click="toggleFavourite">Toggle Favourite</button>
     <button @click="toggleDetails">{{ buttonDetails }} Details</button>
     <ul v-if="detailsVisible">
       <li><strong>Phone:</strong> {{ phoneNumber }}</li>
       <li><strong>Email:</strong> {{ emailAddress }}</li>
-      <li><strong>active:</strong> {{ isActive }}</li>
     </ul>
   </li>
 </template>

@@ -1,0 +1,44 @@
+<template>
+  <section>
+    <form @submit.prevent="submitData">
+      <div>
+        <label>Name </label>
+        <input type="text" v-model="enteredName" />
+      </div>
+      <div>
+        <label>Phone </label>
+        <input type="number" v-model="enteredPhone" />
+      </div>
+
+      <div>
+        <label>Email </label>
+        <input type="email" v-model="enteredEmail" />
+      </div>
+      <div>
+        <button>Add Friend</button>
+      </div>
+    </form>
+  </section>
+</template>
+
+<script>
+export default {
+  emits: ["add-contact"],
+  data() {
+    return {
+      enteredName: "",
+      enteredPhone: "",
+      enteredEmail: "",
+    };
+  },
+  methods: {
+    submitData() {
+      this.$emit("add-contact", {
+        name: this.enteredName,
+        phone: this.enteredPhone,
+        email: this.enteredEmail,
+      });
+    },
+  },
+};
+</script>
